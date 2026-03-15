@@ -1,0 +1,188 @@
+/* الألوان الأساسية */
+:root {
+    --bg-dark: #121212;
+    --card-dark: #1e1e1e;
+    --text-main: #ffffff;
+    --text-dim: #b3b3b3;
+    --accent: #00adb5;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* تعريف الأنيماشن */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* تطبيق الأنيماشن على كل الأقسام */
+section {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* التنسيقات العامة */
+body { background-color: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; }
+.container { max-width: 900px; margin: auto; padding: 40px 20px; }
+.card { background: var(--card-dark); padding: 25px; border-radius: 12px; border: 1px solid #333; margin-bottom: 20px; }
+
+/* الهيدر */
+header { text-align: center; padding: 80px 20px; border-bottom: 1px solid #333; }
+.profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent); margin-bottom: 20px; }
+.location { font-size: 0.9rem; color: var(--accent); margin-top: 10px; }
+
+/* المهارات */
+.skills-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+.skill-item { background: #252525; padding: 10px; border-radius: 6px; font-size: 0.85rem; text-align: center; border: 1px solid #333; }
+
+/* المشاريع */
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.project-card { background: var(--card-dark); padding: 25px; border-radius: 12px; border: 1px solid #333; transition: 0.3s; }
+.project-card:hover { border-color: var(--accent); transform: translateY(-5px); }
+.btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--accent); color: #121212; text-decoration: none; border-radius: 6px; font-weight: bold; }
+
+/* الفوتر */
+footer { background: #0a0a0a; text-align: center; padding: 60px 20px; border-top: 1px solid #333; }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+nav ul li a { color: white; text-decoration: none; font-size: 0.9rem; }
+
+@media (max-width: 600px) {
+    .skills-wrapper, .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* 1. إعدادات الألوان المتطورة */
+:root {
+    --bg-dark: #0f172a;      /* كحلي داكن جداً */
+    --card-bg: rgba(30, 41, 59, 0.7); /* خلفية شفافة قليلاً */
+    --accent: #00d2ff;       /* لبني ساطع */
+    --accent-secondary: #3a7bd5; 
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
+/* 2. تحسين شكل الصفحة العام */
+body {
+    background: radial-gradient(circle at top right, #1e293b, #0f172a); /* تدرج دائري للخلفية */
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* 3. أنيميشن للـ Profile Image (توهج متحرك) */
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid transparent;
+    background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
+                linear-gradient(45deg, var(--accent), var(--accent-secondary)) border-box; /* إطار متدرج */
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05) rotate(5deg); /* حركة عند تمرير الماوس */
+}
+
+/* 4. تأثير الزجاج (Glassmorphism) للكروت */
+.card, .project-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px); /* تغبيش الخلفية خلف الكارت */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.15);
+}
+
+/* 5. زر احترافي مع تأثير Hover */
+.btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, var(--accent), var(--accent-secondary));
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%; /* تأثير لمعة سريعة عند الـ Hover */
+}
+
+/* 6. تحسين الـ Skill Items */
+.skill-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.skill-item:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+/* 7. أنيميشن ظهور العناصر عند السكرول (تحتاج إضافة class "reveal" في HTML) */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeInUp 1s ease-out; /* تجعل الأقسام تظهر بنعومة */
+}
+
+/* 8. شريط التنقل (Navbar) شفاف وأنيق */
+nav {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* مخصص لمتصفحات Chrome و Edge */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #008c91; 
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
