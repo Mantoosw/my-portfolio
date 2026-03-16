@@ -186,3 +186,52 @@ nav {
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--bg-dark); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+/* ضبط الحاوية لتناسب كل الشاشات */
+.container {
+    width: 90%; /* تجعل المحتوى لا يلمس حواف الشاشة في الموبايل */
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ضبط شبكة المشاريع (Projects Grid) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* أهم سطر: يرتب الكروت تحت بعضها تلقائياً */
+    gap: 20px;
+    width: 100%;
+}
+
+/* ضبط الكروت لتأخذ عرض الشاشة بالكامل في الموبايل */
+.card, .project-card {
+    width: 100%;
+    box-sizing: border-box; /* يضمن أن الـ padding لا يخرج الكارت عن الشاشة */
+}
+
+/* ضبط الـ Navbar للموبايل */
+nav .container {
+    flex-direction: column; /* يضع اللوجو فوق اللينكات في الموبايل */
+    text-align: center;
+}
+
+nav ul {
+    padding: 0;
+    justify-content: center;
+    flex-wrap: wrap; /* يمنع اللينكات من الخروج عن الشاشة */
+}
+
+nav ul li {
+    margin: 10px;
+}
+
+/* تحسين حجم النصوص في الموبايل */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    .profile-img {
+        width: 140px;
+        height: 140px;
+    }
+}
